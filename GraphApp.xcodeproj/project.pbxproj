@@ -17,6 +17,7 @@
 		C890DD14208D0C7F007E04B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C890DD13208D0C7F007E04B5 /* SWRevealViewController.m */; };
 		C890DD16208D158B007E04B5 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890DD15208D158B007E04B5 /* GraphViewController.swift */; };
 		C890DD2A208D21A7007E04B5 /* Graphs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C890DD29208D21A7007E04B5 /* Graphs.storyboard */; };
+		C890DD2F208D328A007E04B5 /* DropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890DD2E208D328A007E04B5 /* DropDownField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C890DD13208D0C7F007E04B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		C890DD15208D158B007E04B5 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		C890DD29208D21A7007E04B5 /* Graphs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Graphs.storyboard; sourceTree = "<group>"; };
+		C890DD2E208D328A007E04B5 /* DropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		C890DCDD208D0323007E04B5 /* GraphApp */ = {
 			isa = PBXGroup;
 			children = (
+				C890DD2B208D3210007E04B5 /* ReusableComponents */,
 				C890DD28208D217A007E04B5 /* Graphs */,
 				C890DD0D208D05D1007E04B5 /* Menu */,
 				C890DCDE208D0323007E04B5 /* AppDelegate.swift */,
@@ -168,6 +171,14 @@
 				C890DD29208D21A7007E04B5 /* Graphs.storyboard */,
 			);
 			path = Graphs;
+			sourceTree = "<group>";
+		};
+		C890DD2B208D3210007E04B5 /* ReusableComponents */ = {
+			isa = PBXGroup;
+			children = (
+				C890DD2E208D328A007E04B5 /* DropDownField.swift */,
+			);
+			path = ReusableComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C890DD10208D063A007E04B5 /* MenuTableTableViewController.swift in Sources */,
+				C890DD2F208D328A007E04B5 /* DropDownField.swift in Sources */,
 				C890DD16208D158B007E04B5 /* GraphViewController.swift in Sources */,
 				C890DCDF208D0323007E04B5 /* AppDelegate.swift in Sources */,
 				C890DD14208D0C7F007E04B5 /* SWRevealViewController.m in Sources */,

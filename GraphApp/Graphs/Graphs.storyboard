@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UAf-yZ-C59">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,11 +15,41 @@
             <objects>
                 <viewController id="UAf-yZ-C59" customClass="GraphViewController" customModule="GraphApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TBt-0D-z45">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-2w-daA">
+                                <rect key="frame" x="20" y="28" width="335" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Select County" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-mE-IsS">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nairobi" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05I-NI-7UE" customClass="DropDownField" customModule="GraphApp" customModuleProvider="target">
+                                        <rect key="frame" x="177.5" y="2" width="157.5" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="drop-down"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.77429145570000002" green="0.77125215530000002" blue="0.78860586880000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="drop-down"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="BjB-Rp-sRZ"/>
+                                </constraints>
+                            </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-Fs-uko">
-                                <rect key="frame" x="20" y="85" width="335" height="29"/>
+                                <rect key="frame" x="20" y="73.5" width="335" height="29"/>
                                 <segments>
                                     <segment title="Line"/>
                                     <segment title="Bar"/>
@@ -24,9 +58,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pkz-Fs-uko" firstAttribute="top" secondItem="gJH-hn-hkh" secondAttribute="top" constant="21" id="2Zt-ts-jqR"/>
-                            <constraint firstItem="gJH-hn-hkh" firstAttribute="trailing" secondItem="pkz-Fs-uko" secondAttribute="trailing" constant="20" id="nqd-4H-Zjs"/>
-                            <constraint firstItem="pkz-Fs-uko" firstAttribute="leading" secondItem="gJH-hn-hkh" secondAttribute="leading" constant="20" id="pIl-iA-PTX"/>
+                            <constraint firstItem="bfe-2w-daA" firstAttribute="top" secondItem="gJH-hn-hkh" secondAttribute="top" constant="8" id="Gy6-22-ePf"/>
+                            <constraint firstItem="pkz-Fs-uko" firstAttribute="top" secondItem="bfe-2w-daA" secondAttribute="bottom" constant="25" id="Sh4-BX-Bbd"/>
+                            <constraint firstItem="pkz-Fs-uko" firstAttribute="leading" secondItem="bfe-2w-daA" secondAttribute="leading" id="TLD-yu-tRb"/>
+                            <constraint firstItem="pkz-Fs-uko" firstAttribute="trailing" secondItem="bfe-2w-daA" secondAttribute="trailing" id="k9s-q7-nw4"/>
+                            <constraint firstItem="gJH-hn-hkh" firstAttribute="trailing" secondItem="bfe-2w-daA" secondAttribute="trailing" constant="20" id="qrH-sd-oLA"/>
+                            <constraint firstItem="bfe-2w-daA" firstAttribute="leading" secondItem="gJH-hn-hkh" secondAttribute="leading" constant="20" id="yPz-S3-QRM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJH-hn-hkh"/>
                     </view>
@@ -34,6 +71,8 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="HNC-qz-DMB"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="countySelectionContainer" destination="bfe-2w-daA" id="Lld-ML-Cjg"/>
+                        <outlet property="graphSwitch" destination="pkz-Fs-uko" id="ECI-rE-Skm"/>
                         <outlet property="menuButton" destination="HNC-qz-DMB" id="OBN-wg-4g3"/>
                     </connections>
                 </viewController>
@@ -43,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="drop-down" width="48" height="48"/>
         <image name="menu" width="48" height="48"/>
     </resources>
 </document>
