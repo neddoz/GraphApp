@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				C890DD0F208D063A007E04B5 /* MenuTableTableViewController.swift */,
-				C890DD15208D158B007E04B5 /* GraphViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +167,7 @@
 		C890DD28208D217A007E04B5 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
+				C890DD30208D3A43007E04B5 /* Controllers */,
 				C890DD29208D21A7007E04B5 /* Graphs.storyboard */,
 			);
 			path = Graphs;
@@ -179,6 +179,14 @@
 				C890DD2E208D328A007E04B5 /* DropDownField.swift */,
 			);
 			path = ReusableComponents;
+			sourceTree = "<group>";
+		};
+		C890DD30208D3A43007E04B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C890DD15208D158B007E04B5 /* GraphViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-2w-daA">
-                                <rect key="frame" x="20" y="28" width="335" height="20.5"/>
+                                <rect key="frame" x="20" y="28" width="335" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Select County" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-mE-IsS">
-                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="5" width="157.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nairobi" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05I-NI-7UE" customClass="DropDownField" customModule="GraphApp" customModuleProvider="target">
-                                        <rect key="frame" x="177.5" y="2" width="157.5" height="17"/>
+                                        <rect key="frame" x="177.5" y="6.5" width="157.5" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -46,10 +46,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="BjB-Rp-sRZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="alA-ck-PBe"/>
                                 </constraints>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-Fs-uko">
-                                <rect key="frame" x="20" y="73.5" width="335" height="29"/>
+                                <rect key="frame" x="20" y="83" width="335" height="29"/>
                                 <segments>
                                     <segment title="Line"/>
                                     <segment title="Bar"/>

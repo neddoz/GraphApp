@@ -21,12 +21,9 @@ class GraphViewController: UIViewController {
 
         // Setting up of menu toggling
         setUpMenuSwitch()
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Toggle Switch position
-        toggleSwitchPosition()
+        // Bottom border to the county selection container
+        addBottomBorder(to: countySelectionContainer)
     }
 
     // MARK: -Private Instance functions
@@ -39,13 +36,11 @@ class GraphViewController: UIViewController {
         }
     }
 
-    private func toggleSwitchPosition() {
-        if countySelectionContainer.isHidden {
-            countySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
-            graphSwitch.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100.0)
-        }else {
-            countySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
-        }
+    private func addBottomBorder(to view: UIView){
+        let bottomBorder = CALayer()
+        bottomBorder.backgroundColor = UIColor.gray.cgColor
+        bottomBorder.frame = CGRect(x: 0.0, y: view.frame.height - 1.0, width: view.frame.width + 2.0, height: 1.0)
+        view.layer.addSublayer(bottomBorder)
     }
 }
 
