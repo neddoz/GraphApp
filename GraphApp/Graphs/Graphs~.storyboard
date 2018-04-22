@@ -87,6 +87,41 @@
             </objects>
             <point key="canvasLocation" x="793" y="440"/>
         </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="KML-Yy-GbK">
+            <objects>
+                <viewController id="UAf-yZ-C59" customClass="GraphViewController" customModule="GraphApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TBt-0D-z45">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-Fs-uko">
+                                <rect key="frame" x="20" y="85" width="335" height="29"/>
+                                <segments>
+                                    <segment title="Line"/>
+                                    <segment title="Bar"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pkz-Fs-uko" firstAttribute="top" secondItem="gJH-hn-hkh" secondAttribute="top" constant="21" id="2Zt-ts-jqR"/>
+                            <constraint firstItem="gJH-hn-hkh" firstAttribute="trailing" secondItem="pkz-Fs-uko" secondAttribute="trailing" constant="20" id="nqd-4H-Zjs"/>
+                            <constraint firstItem="pkz-Fs-uko" firstAttribute="leading" secondItem="gJH-hn-hkh" secondAttribute="leading" constant="20" id="pIl-iA-PTX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gJH-hn-hkh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9lh-oK-5Gp">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="HNC-qz-DMB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="HNC-qz-DMB" id="OBN-wg-4g3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WbZ-Ub-xqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1184.8" y="-334.18290854572717"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zZH-NM-Xfl">
             <objects>
@@ -98,22 +133,15 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YBy-10-S46" kind="relationship" relationship="rootViewController" id="Cqf-NJ-xBH"/>
+                        <segue destination="UAf-yZ-C59" kind="relationship" relationship="rootViewController" id="Cqf-NJ-xBH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAV-rG-U5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="526" y="-334"/>
         </scene>
-        <!--Graphs-->
-        <scene sceneID="ieU-f1-7Sk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Graphs" id="YBy-10-S46" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="f8U-uN-goc"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gu1-4x-wrr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1184.8" y="-334.18290854572717"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="48" height="48"/>
+    </resources>
 </document>
