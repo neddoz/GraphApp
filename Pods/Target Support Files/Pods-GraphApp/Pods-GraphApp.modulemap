@@ -1,0 +1,6 @@
+framework module Pods_GraphApp {
+  umbrella header "Pods-GraphApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

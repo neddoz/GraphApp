@@ -82,6 +82,9 @@
                             <outlet property="delegate" destination="yzH-ih-F7p" id="ifV-wN-eZX"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="jZN-It-oBh" kind="show" identifier="toGraphsSegue" id="tfD-UY-ZYQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoR-1C-Qqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAV-rG-U5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="-334"/>
+            <point key="canvasLocation" x="719" y="-396"/>
         </scene>
         <!--Graphs-->
         <scene sceneID="ieU-f1-7Sk">
@@ -116,4 +119,7 @@
             <point key="canvasLocation" x="1184.8" y="-334.18290854572717"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tfD-UY-ZYQ"/>
+    </inferredMetricsTieBreakers>
 </document>

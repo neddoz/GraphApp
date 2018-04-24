@@ -55,16 +55,39 @@
                                     <segment title="Line"/>
                                     <segment title="Bar"/>
                                 </segments>
+                                <connections>
+                                    <action selector="graphTypeSwitched:" destination="UAf-yZ-C59" eventType="valueChanged" id="eXH-mk-zcA"/>
+                                </connections>
                             </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utx-hP-zDr">
+                                <rect key="frame" x="0.0" y="133" width="375" height="534"/>
+                                <connections>
+                                    <segue destination="5Se-XJ-Bl5" kind="embed" identifier="toBarGraph" id="bGu-kM-y6I"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvi-ca-Q2d">
+                                <rect key="frame" x="0.0" y="133" width="375" height="534"/>
+                                <connections>
+                                    <segue destination="dml-ap-tPj" kind="embed" identifier="toLineGraph" id="QNk-Hd-CZ7"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="bottom" secondItem="gJH-hn-hkh" secondAttribute="bottom" id="CVE-vu-jlG"/>
                             <constraint firstItem="bfe-2w-daA" firstAttribute="top" secondItem="gJH-hn-hkh" secondAttribute="top" constant="8" id="Gy6-22-ePf"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="trailing" secondItem="Utx-hP-zDr" secondAttribute="trailing" id="MHX-6z-yRy"/>
+                            <constraint firstItem="gJH-hn-hkh" firstAttribute="trailing" secondItem="Cvi-ca-Q2d" secondAttribute="trailing" id="Q0E-eE-99Q"/>
                             <constraint firstItem="pkz-Fs-uko" firstAttribute="top" secondItem="bfe-2w-daA" secondAttribute="bottom" constant="25" id="Sh4-BX-Bbd"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="bottom" secondItem="Utx-hP-zDr" secondAttribute="bottom" id="TET-Mb-fCz"/>
                             <constraint firstItem="pkz-Fs-uko" firstAttribute="leading" secondItem="bfe-2w-daA" secondAttribute="leading" id="TLD-yu-tRb"/>
                             <constraint firstItem="pkz-Fs-uko" firstAttribute="trailing" secondItem="bfe-2w-daA" secondAttribute="trailing" id="k9s-q7-nw4"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="top" secondItem="Utx-hP-zDr" secondAttribute="top" id="l0r-Nj-REd"/>
                             <constraint firstItem="gJH-hn-hkh" firstAttribute="trailing" secondItem="bfe-2w-daA" secondAttribute="trailing" constant="20" id="qrH-sd-oLA"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="leading" secondItem="gJH-hn-hkh" secondAttribute="leading" id="qws-60-8cV"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="leading" secondItem="Utx-hP-zDr" secondAttribute="leading" id="v2F-yb-kuv"/>
                             <constraint firstItem="bfe-2w-daA" firstAttribute="leading" secondItem="gJH-hn-hkh" secondAttribute="leading" constant="20" id="yPz-S3-QRM"/>
+                            <constraint firstItem="Cvi-ca-Q2d" firstAttribute="top" secondItem="pkz-Fs-uko" secondAttribute="bottom" constant="22" id="zL8-Qh-aRX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJH-hn-hkh"/>
                     </view>
@@ -72,14 +95,53 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="HNC-qz-DMB"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="barGraph" destination="Cvi-ca-Q2d" id="3qP-LP-Gra"/>
                         <outlet property="countySelectionContainer" destination="bfe-2w-daA" id="Lld-ML-Cjg"/>
                         <outlet property="graphSwitch" destination="pkz-Fs-uko" id="ECI-rE-Skm"/>
+                        <outlet property="lineGraph" destination="Utx-hP-zDr" id="jmB-Rx-zk5"/>
                         <outlet property="menuButton" destination="HNC-qz-DMB" id="OBN-wg-4g3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbZ-Ub-xqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184.8" y="-334.18290854572717"/>
+            <point key="canvasLocation" x="505" y="-337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SgR-TL-tq0">
+            <objects>
+                <viewController id="5Se-XJ-Bl5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u8U-pW-ah5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBL-B1-ZFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-136"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hmn-Vi-P1m">
+            <objects>
+                <viewController id="dml-ap-tPj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Spi-m1-cHX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label vibes!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhO-oN-F1g">
+                                <rect key="frame" x="77" y="96" width="282" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkW-k8-wax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-805.09745127436292"/>
         </scene>
     </scenes>
     <resources>
