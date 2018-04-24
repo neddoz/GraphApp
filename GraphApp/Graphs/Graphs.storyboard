@@ -106,38 +106,35 @@
             </objects>
             <point key="canvasLocation" x="505" y="-337"/>
         </scene>
-        <!--View Controller-->
+        <!--Bar Graph View Controller-->
         <scene sceneID="SgR-TL-tq0">
             <objects>
-                <viewController id="5Se-XJ-Bl5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u8U-pW-ah5">
+                <viewController id="5Se-XJ-Bl5" customClass="BarGraphViewController" customModule="GraphApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u8U-pW-ah5" customClass="BarChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="u8U-pW-ah5" id="DB8-mz-7C3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBL-B1-ZFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1252" y="-136"/>
         </scene>
-        <!--View Controller-->
+        <!--Line Graph View Controller-->
         <scene sceneID="hmn-Vi-P1m">
             <objects>
-                <viewController id="dml-ap-tPj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Spi-m1-cHX">
+                <viewController id="dml-ap-tPj" customClass="LineGraphViewController" customModule="GraphApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Spi-m1-cHX" customClass="LineChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label vibes!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhO-oN-F1g">
-                                <rect key="frame" x="77" y="96" width="282" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="lineChart" destination="Spi-m1-cHX" id="rGv-by-Nz5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkW-k8-wax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

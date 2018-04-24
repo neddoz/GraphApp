@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Charts
 
 class LineGraphViewController: UIViewController {
-
+    @IBOutlet var lineChart: LineChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
