@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import then
 
 enum ReportType {
     case exerciseRevenue
@@ -15,7 +16,7 @@ enum ReportType {
     init?(int: Int){
         switch int{
         case 0:
-            self = .countyAllocation
+            self = .exerciseRevenue
         case 1:
             self = .countyAllocation
         default:
@@ -26,6 +27,8 @@ enum ReportType {
 
 enum AppSegue: String {
     case toGraphsSegue
+    case toLineGraph
+    case toBarGraph
 }
 
 extension MenuTableTableViewController{
@@ -34,7 +37,13 @@ extension MenuTableTableViewController{
         guard let reportType = ReportType(int: indexPath.row)  else {
             return
         }
-        self.performSegue(withIdentifier: AppSegue.toGraphsSegue.rawValue, sender: reportType)
+        self.graphReport = reportType
+        fetchReportdata().then {[weak self] json in
+            self?.chartData = json
+            self?.performSegue(withIdentifier: AppSegue.toGraphsSegue.rawValue, sender: reportType)
+            }.onError { error in
+                print(error.localizedDescription)
+        }
         // TODO: Instantiate view model and pass it to the graph view contoller
     }
 }
@@ -42,9 +51,11 @@ extension MenuTableTableViewController{
 extension MenuTableTableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let sender = sender as? ReportType,
-            let destinationVc = segue.destination as? GraphViewController else {
+            let nav = segue.destination as? UINavigationController,
+            let destinationVc = nav.viewControllers[0] as? GraphViewController else {
             return
         }
         destinationVc.graphReport = sender
+        destinationVc.chartData = chartData
     }
 }

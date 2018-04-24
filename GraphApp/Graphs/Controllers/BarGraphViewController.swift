@@ -11,7 +11,13 @@ import Charts
 
 class BarGraphViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet var barChart: BarChartView!
+
+    // MARK: Public Instance properties
+    var chartData: [JSON]?
+    var dataType: NetworkController.APIResource?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

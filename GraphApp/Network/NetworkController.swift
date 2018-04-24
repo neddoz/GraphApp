@@ -46,7 +46,7 @@ extension NetworkController{
 
                 guard let unwrappedData = data else { throw JSONError.NoData }
 
-                guard let json = try JSONSerialization.jsonObject(with: unwrappedData, options:JSONSerialization.ReadingOptions.allowFragments) as? NSArray else { throw JSONError.ConversionFailed }
+                guard let json = try JSONSerialization.jsonObject(with: unwrappedData, options:JSONSerialization.ReadingOptions.allowFragments) as? [JSON] else { throw JSONError.ConversionFailed }
                 //print("This is the data: \(json)")
                 completion(json)
 

@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'GraphApp' do
   pod 'Charts'
+  pod 'thenPromise'
 end

@@ -7,37 +7,35 @@
 //
 
 import UIKit
+import then
 
 class GraphViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var lineGraphContainer: UIView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var countySelectionContainer: UIStackView!
     @IBOutlet weak var graphSwitch: UISegmentedControl!
     @IBOutlet weak var lineGraph: UIView!
     @IBOutlet weak var barGraph: UIView!
 
-
-    // Public Instance properties
-    var graphReport: ReportType = .exerciseRevenue {
+    var chartData: [JSON]? {
         didSet{
-            fetchReportdata()
         }
     }
+    // Public Instance properties
+    var graphReport: ReportType = .exerciseRevenue
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         // Setting up of menu toggling
         setUpMenuSwitch()
 
         // Bottom border to the county selection container
         addBottomBorder(to: countySelectionContainer)
-
-        let objects = fetchReportdata()
-        print("Objects", objects)
-
     }
 
     // MARK: IBActions
@@ -74,18 +72,47 @@ class GraphViewController: UIViewController {
         bottomBorder.frame = CGRect(x: 0.0, y: view.frame.height - 1.0, width: view.frame.width + 2.0, height: 1.0)
         view.layer.addSublayer(bottomBorder)
     }
+    private func modelObjects(`in` list:[JSON], matching type: NetworkController.APIResource)->[Any]?{
+        switch type {
+        case .exciseRevenue:
+            var modelObjects = [exciseRevenue]()
+            for item in list{
+                if let object = exciseRevenue(json: item){
+                    modelObjects.append(object)
+                }
+            }
+            return modelObjects
+        case .countyAllocation:
+            var _ = [CountyAllocation]()
+        }
+        return nil
+    }
 
-    private func fetchReportdata()-> NSArray?{
-        var dataArrayObjects: NSArray?
+    // MARK: Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let endpoint: NetworkController.APIResource = graphReport == .exerciseRevenue ? .exciseRevenue : .countyAllocation
-        NetworkController.sendGETRequest(endpoint) { data in
-            guard let data = data as? NSArray else {
+
+        switch segue.identifier {
+        case AppSegue.toLineGraph.rawValue?:
+            guard let destinationVc = segue.destination as? LineGraphViewController else {
                 return
             }
-            dataArrayObjects = data
-            print("The fetched records are: ", data)
+            destinationVc.dataType = endpoint
+            guard let chartData = chartData else {
+                return
+            }
+            if let models = self.modelObjects(in: chartData, matching: endpoint) {
+                destinationVc.chartData = models
+            }
+        case AppSegue.toGraphsSegue.rawValue?:
+            guard let destinationVc = segue.destination as? BarGraphViewController else {
+                return
+            }
+            destinationVc.dataType = endpoint
+            destinationVc.chartData = chartData
+        default:
+            break
         }
-        return dataArrayObjects
     }
 }
 

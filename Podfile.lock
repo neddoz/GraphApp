@@ -2,13 +2,16 @@ PODS:
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
   - Charts/Core (3.0.5)
+  - thenPromise (3.1.0)
 
 DEPENDENCIES:
   - Charts
+  - thenPromise
 
 SPEC CHECKSUMS:
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  thenPromise: 29beffd9c9c520e21675a7c673564eca2e24da12
 
-PODFILE CHECKSUM: 6cef54f7812ebdf173e8750b5ad55ddda1001832
+PODFILE CHECKSUM: 424a71a07f1bdf9ef4a969d35d3f448502329079
 
 COCOAPODS: 1.2.0

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C3A33B0545AAA0C2785BBE152A0B931"
-               BuildableName = "Pods_GraphApp.framework"
-               BlueprintName = "Pods-GraphApp"
+               BlueprintIdentifier = "178072D5376556164AEF53F3D95BC1B1"
+               BuildableName = "then.framework"
+               BlueprintName = "thenPromise"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C3A33B0545AAA0C2785BBE152A0B931"
-            BuildableName = "Pods_GraphApp.framework"
-            BlueprintName = "Pods-GraphApp"
+            BlueprintIdentifier = "178072D5376556164AEF53F3D95BC1B1"
+            BuildableName = "then.framework"
+            BlueprintName = "thenPromise"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
