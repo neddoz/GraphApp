@@ -30,39 +30,113 @@ class LineGraphViewController: UIViewController {
                 return
             }
             var dataPoints: [String]{
-                return revenueModels.map {
-                    $0.year
+                var arraySet = Set<String>()
+                revenueModels.forEach {
+                    arraySet.insert($0.year)
                 }
+                var dataPoints = [String]()
+                for (_, value) in arraySet.enumerated() {
+                    dataPoints.append(value)
+                }
+                return dataPoints
             }
 
-            var beerValues: [Double]{
-                return revenueModels.map{ $0.beer }
+            var beerDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.beer }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.beer)
+
+                return lineChartDataSet
             }
 
-            var cigarettesValues: [Double]{
-                return revenueModels.map{ $0.cigarettes }
+            var cigarettesDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.cigarettes }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.cigarettes)
+
+                return lineChartDataSet
             }
 
-            setData(dataPoints: dataPoints, values: beerValues, label: "beer")
-            setData(dataPoints: dataPoints, values: cigarettesValues, label: "cigarettes")
+            var commoditiesDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.commodities }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.commodities)
+
+                return lineChartDataSet
+            }
+
+            var spiritsDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.spirits }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.spirits)
+
+                return lineChartDataSet
+            }
+
+            var totalDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.total }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.total)
+
+                return lineChartDataSet
+            }
+
+            var watersDataSet: LineChartDataSet{
+                let values = revenueModels.map{ $0.waters }
+                var dataEntries: [ChartDataEntry] = []
+
+                for i in 0..<dataPoints.count {
+                    let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+                    dataEntries.append(dataEntry)
+                }
+
+                let lineChartDataSet = LineChartDataSet(values: dataEntries, label: exciseRevenue.Key.waters)
+
+                return lineChartDataSet
+            }
+            let dataSets = [beerDataSet, cigarettesDataSet, commoditiesDataSet, spiritsDataSet, totalDataSet, watersDataSet]
+            setData(dataPoints: dataPoints, dataSets: dataSets)
 
         case .countyAllocation:
             break
         }
     }
 
-    func setData(dataPoints: [String], values: [Double], label: String) {
-
-        var dataEntries: [ChartDataEntry] = []
-
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
-            dataEntries.append(dataEntry)
-        }
+    func setData(dataPoints: [String], dataSets: [LineChartDataSet]) {
 
         var colors: [UIColor] = []
 
-        for _ in 0..<dataPoints.count {
+        for _ in 0..<dataSets.count {
             let red = Double(arc4random_uniform(256))
             let green = Double(arc4random_uniform(256))
             let blue = Double(arc4random_uniform(256))
@@ -71,8 +145,11 @@ class LineGraphViewController: UIViewController {
             colors.append(color)
         }
 
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: label)
-        let lineChartData = LineChartData(dataSets: [lineChartDataSet])
+        for (index, set) in dataSets.enumerated(){
+            set.setColor(colors[index])
+        }
+
+        let lineChartData = LineChartData(dataSets: dataSets)
         lineChart.data = lineChartData
 
     }
