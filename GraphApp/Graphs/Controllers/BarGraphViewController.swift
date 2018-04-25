@@ -20,5 +20,10 @@ class BarGraphViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setChart()
+    }
+
+    func setChart(){
+
     }
 }

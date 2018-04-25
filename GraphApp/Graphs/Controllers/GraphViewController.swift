@@ -40,7 +40,10 @@ class GraphViewController: UIViewController {
 
     // MARK: IBActions
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.performSegue(withIdentifier: AppSegue.toLineGraph.rawValue, sender: nil)
+    }
     @IBAction func graphTypeSwitched(_ sender: UISegmentedControl) {
 
         if sender.selectedSegmentIndex == 0 {
@@ -83,9 +86,14 @@ class GraphViewController: UIViewController {
             }
             return modelObjects
         case .countyAllocation:
-            var _ = [CountyAllocation]()
+            var modelObjects = [CountyAllocation]()
+            for item in list{
+                if let object = CountyAllocation(json: item){
+                    modelObjects.append(object)
+                }
+            }
+            return modelObjects
         }
-        return nil
     }
 
     // MARK: Segues
@@ -94,6 +102,7 @@ class GraphViewController: UIViewController {
 
         switch segue.identifier {
         case AppSegue.toLineGraph.rawValue?:
+            graphSwitch.selectedSegmentIndex = 1
             guard let destinationVc = segue.destination as? LineGraphViewController else {
                 return
             }
@@ -104,7 +113,8 @@ class GraphViewController: UIViewController {
             if let models = self.modelObjects(in: chartData, matching: endpoint) {
                 destinationVc.chartData = models
             }
-        case AppSegue.toGraphsSegue.rawValue?:
+        case AppSegue.toBarGraph.rawValue?:
+            graphSwitch.selectedSegmentIndex = 0
             guard let destinationVc = segue.destination as? BarGraphViewController else {
                 return
             }

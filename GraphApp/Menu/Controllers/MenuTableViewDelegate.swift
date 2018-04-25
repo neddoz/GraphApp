@@ -29,6 +29,8 @@ enum AppSegue: String {
     case toGraphsSegue
     case toLineGraph
     case toBarGraph
+    case allocationToGraphs
+    case revenueToGraphs
 }
 
 extension MenuTableTableViewController{
@@ -37,25 +39,29 @@ extension MenuTableTableViewController{
         guard let reportType = ReportType(int: indexPath.row)  else {
             return
         }
+//        let cell = self.tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
         self.graphReport = reportType
         fetchReportdata().then {[weak self] json in
             self?.chartData = json
-            self?.performSegue(withIdentifier: AppSegue.toGraphsSegue.rawValue, sender: reportType)
+            DispatchQueue.global(qos: .userInitiated).async {
+                self?.revealViewController().revealToggle(self)
+//                self?.performSegue(withIdentifier: AppSegue.toGraphsSegue.rawValue, sender: reportType)
+            }
             }.onError { error in
                 print(error.localizedDescription)
         }
-        // TODO: Instantiate view model and pass it to the graph view contoller
     }
 }
 
 extension MenuTableTableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let sender = sender as? ReportType,
-            let nav = segue.destination as? UINavigationController,
-            let destinationVc = nav.viewControllers[0] as? GraphViewController else {
-            return
+        if segue.identifier == AppSegue.allocationToGraphs.rawValue || segue.identifier == AppSegue.revenueToGraphs.rawValue {
+            guard let nav = segue.destination as? UINavigationController,
+                let destinationVc = nav.viewControllers[0] as? GraphViewController else {
+                    return
+            }
+            destinationVc.graphReport = self.graphReport
+            destinationVc.chartData = chartData
         }
-        destinationVc.graphReport = sender
-        destinationVc.chartData = chartData
     }
 }
