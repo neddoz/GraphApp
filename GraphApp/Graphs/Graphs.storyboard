@@ -99,7 +99,6 @@
                         <outlet property="countySelectionContainer" destination="bfe-2w-daA" id="Lld-ML-Cjg"/>
                         <outlet property="graphSwitch" destination="pkz-Fs-uko" id="ECI-rE-Skm"/>
                         <outlet property="lineGraph" destination="Utx-hP-zDr" id="jmB-Rx-zk5"/>
-                        <outlet property="lineGraphContainer" destination="Utx-hP-zDr" id="Lz6-V1-7mw"/>
                         <outlet property="menuButton" destination="HNC-qz-DMB" id="OBN-wg-4g3"/>
                     </connections>
                 </viewController>

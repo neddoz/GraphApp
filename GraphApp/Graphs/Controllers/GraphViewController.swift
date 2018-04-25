@@ -13,7 +13,6 @@ class GraphViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var lineGraphContainer: UIView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var countySelectionContainer: UIStackView!
     @IBOutlet weak var graphSwitch: UISegmentedControl!
@@ -119,7 +118,13 @@ class GraphViewController: UIViewController {
                 return
             }
             destinationVc.dataType = endpoint
-            destinationVc.chartData = chartData
+            guard let chartData = chartData else {
+                return
+            }
+            if let models = self.modelObjects(in: chartData, matching: endpoint) {
+                destinationVc.chartData = models
+            }
+//            destinationVc.chartData = chartData
         default:
             break
         }
